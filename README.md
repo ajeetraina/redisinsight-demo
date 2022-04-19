@@ -1,4 +1,4 @@
-# redisinsight-demo
+# Redisinsight Demos
 
 
 # Getting Started
