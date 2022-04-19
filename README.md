@@ -88,6 +88,8 @@ JSON.SET bikes:1 $.model '"Hyperion"'
 
 Now let's load a lot more bikes so we can play around with the queries:
 
+
+
 ```
 JSON.SET bikes:0 $ '{"model": "Deimos", "brand": "Ergonom", "price": 4972, "type": "Enduro bikes", "specs": {"material": "alloy", "weight": 14.0}, "description": "Redesigned for the 2020 model year, this bike impressed our testers and is the best all-around trail bike we\'ve ever tested. It has a lightweight frame and all-carbon fork, with cables routed internally. It\u2019s for the rider who wants both efficiency and capability."}' 
 JSON.SET bikes:1 $ '{"model": "Vanth", "brand": "Tots", "price": 4971, "type": "eBikes", "specs": {"material": "full-carbon", "weight": 13.0}, "description": "If you\'re looking for the best commuter eBike for your trip to and from the office, that will keep you rolling from home to work. The hydraulic disc brakes provide powerful and modulated braking even in wet conditions, whilst the 3x8 drivetrain offers a huge choice of gears. If you\'re after a budget option, this is one of the best bikes you could get."}' 
@@ -117,12 +119,35 @@ FT.CREATE idx:bikes
  
  Now that we have our data indexed, it's really easy to run full-text searches on it and filter by number, tag and even geo positio
  
+ ## Search by Type
  
  ```
  FT.SEARCH idx:bikes "@type:{eBikes}"
  ```
  <img width="839" alt="Screen Shot 2022-04-19 at 9 01 25 PM" src="https://user-images.githubusercontent.com/313480/164040647-559bff3e-68de-425b-9e10-b65d7348945e.png">
 
+ 
+
+## Search by Category and Price
+
+
+```
+FT.SEARCH idx:bikes "@type:{eBikes} @price:[200 1200]" 
+    RETURN 9 $.model AS model $.type AS type $.price AS price 
+```
+
+<img width="844" alt="Screen Shot 2022-04-19 at 9 04 02 PM" src="https://user-images.githubusercontent.com/313480/164041208-af7f0731-0fb8-41b6-a1a4-0f401036d62c.png">
+
+# Even more search parameters
+
+```
+FT.SEARCH idx:bikes "mudguards @type:{Mountain bikes} @price:[1000 3000]" 
+    RETURN 12 $.model AS model $.type AS type $.price AS price $.description AS description
+```
+<img width="847" alt="Screen Shot 2022-04-19 at 9 04 58 PM" src="https://user-images.githubusercontent.com/313480/164041385-17eb08ab-eacd-4b17-8782-2c491622501e.png">
+
+
+ 
  
 
 
