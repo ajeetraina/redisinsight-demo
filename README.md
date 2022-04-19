@@ -148,8 +148,51 @@ FT.SEARCH idx:bikes "mudguards @type:{Mountain bikes} @price:[1000 3000]"
 
 
  
+ ## Agregate Search
  
+ 
+ ## Bike Count Per Category
+ 
+ ```
+ FT.AGGREGATE idx:bikes "@price:[1000 3000]" 
+    GROUPBY 1 @type 
+        REDUCE COUNT 0 AS count 
+    SORTBY 2 @count "DESC"
+ ```
+ 
+ 
+<img width="836" alt="Screen Shot 2022-04-19 at 9 06 23 PM" src="https://user-images.githubusercontent.com/313480/164041672-c4b0dae1-98ab-4f51-96a9-b0acad4148ea.png">
 
+
+## Average Bike Weigth per Category
+
+```
+T.AGGREGATE idx:bikes "*" 
+    GROUPBY 1 @type 
+        REDUCE AVG 1 @weight AS average_bike_weight 
+    SORTBY 2 @average_bike_weight "DESC"
+ ```
+ <img width="837" alt="Screen Shot 2022-04-19 at 9 07 17 PM" src="https://user-images.githubusercontent.com/313480/164041839-be157191-0f2d-4ec9-b654-7f14734adaa1.png">
+
+
+## Bike Per Weight Range
+
+
+```
+FT.AGGREGATE idx:bikes "*"
+    APPLY "floor(@weight)" AS weight
+    GROUPBY 1 @weight
+      REDUCE count 0 AS count
+    SORTBY 1 @weight
+```
+<img width="829" alt="Screen Shot 2022-04-19 at 9 08 16 PM" src="https://user-images.githubusercontent.com/313480/164042028-789595f2-67f4-47d1-b2f9-98268bd17bb0.png">
+
+
+
+
+ 
+ 
+ 
 
 
 
