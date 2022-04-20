@@ -54,7 +54,6 @@ Refresh the keys view by clicking as shown below:
 ![image](https://user-images.githubusercontent.com/313480/164141331-5c990773-c18b-4c6c-ae58-60f99d812791.png)
 
 
-![alt_text](images/image_browser1.png)
 
 
 You can get a real-time view of the data in your Redis database as shown below:
