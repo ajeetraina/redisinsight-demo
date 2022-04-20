@@ -78,7 +78,7 @@ Enter key name, field and value.
 
 
 
-### Step 9: Using CLI
+### Step 4: Using CLI
 
 RedisInsight CLI lets you run commands against a Redis server. You don’t need to remember the syntax - the integrated help shows you all the arguments and validates your command as you type.
 
