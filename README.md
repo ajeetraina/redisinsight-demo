@@ -7,7 +7,7 @@
 
 ## 1. User Database
 
-Importing keys
+Let us importing keys
 
 Let us import a user database (6k keys). This dataset contains users stored as Redis Hashes.
 
