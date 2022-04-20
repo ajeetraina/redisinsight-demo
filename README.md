@@ -1,40 +1,97 @@
-# Redisinsight Demos
+# Demonstrating RedisInsight Features
+
+- 1. User database
+- 2. Bike Shop
+- 3. A Real-time Sensor Analytics
 
 
-## Getting Started
+## 1. User Database
 
-### Install Redis Stack on your Mac
+Importing keys
 
-Two different ways
+Let us import a user database (6k keys). This dataset contains users stored as Redis Hashes.
 
-- Either download manually
-- Using brew
 
-```
-brew tap redis-stack/redis-stack
-brew install --cask redis-stack
-```
+### 
+**Users**
 
-## Start Redis Stack server
+The user hashes contain the following fields:
 
-```
- redis-stack-server
+
+
+*   `user:id` : The key of the hash.
+*   `first_name` : First Name.
+*   `last_name` : Last name.
+*   `email` : email address.
+*   `gender` : Gender (male/female).
+*   `ip_address` : IP address.
+*   `country` : Country Name.
+*   `country_code` : Country Code.
+*   `city` : City of the user.
+*   `longitude` : Longitude of the user.
+*   `latitude` : Latitude of the user.
+*   `last_login` : Epoch time of the last login.
+
+### Step 1: Cloning the repository
+
+Open up the CLI terminal and run the following command:
+
+ ```bash
+  git clone https://github.com/redis-developer/redis-datasets
+  cd redis-datasets/user-database
  ```
- 
- ## Test the connectivity
- 
+
+
+### Step 2. Importing the user database:
+
+
+ ```bash
+  redis-cli -h localhost -p 6379 < ./import_users.redis
  ```
- redis-cli
- ```
- 
- ## Open up RedisInsight from the application 
- 
- ## Conect by providing 
- <img width="1217" alt="Screen Shot 2022-04-19 at 8 35 29 PM" src="https://user-images.githubusercontent.com/313480/164035282-c52f3dec-15bc-4031-a773-a2cc24094aa5.png">
+
+
+Refresh the keys view by clicking as shown below:
+
+![image](https://user-images.githubusercontent.com/313480/164141331-5c990773-c18b-4c6c-ae58-60f99d812791.png)
+
+
+![alt_text](images/image_browser1.png)
+
+
+You can get a real-time view of the data in your Redis database as shown below:
+
+
+
+Select any key in the keys view and the key's value gets displayed in the right hand side that includes Fields and values.
+
+
+
+
+### Step 3. Modifying a key
+
+![image](https://user-images.githubusercontent.com/313480/164141367-c57b5df1-7949-4ea1-be99-d9a8677dfa64.png)
+
+
+
+
+Enter key name, field and value.
+
+
+
+
+
+### Step 9: Using CLI
+
+RedisInsight CLI lets you run commands against a Redis server. You don’t need to remember the syntax - the integrated help shows you all the arguments and validates your command as you type.
+
+
+![image](https://user-images.githubusercontent.com/313480/164141411-7cdcdc4e-2a6a-4a61-8de7-eb43d6d228d0.png)
+
+
 
  
 
-## Demo -1 : Bike Shop using RedisJSON
+## Demonstrating Bike Shop using RedisJSON
 
 In this tutorial, we will go through an example of a bike shop. We will show the different capabilities of Redis Stack.
 
