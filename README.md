@@ -287,7 +287,7 @@ Loading BME680 Sensor data directly into RedisTimeSeries(over Redis Enterprise C
 
 ### Pre-requisite
 
-- Jetson Nano 4GB/2GB Model/Raspberry Pi/Arduino
+- Jetson Nano 4GB/2GB Model/Raspberry Pi/Arduino(76.9.187.74, picoXXX)
 - Redis Enterprise Cloud Account configured with Subscription and Account
    - Endpoint Required
    - Password
@@ -339,7 +339,7 @@ Successfully installed bme680-1.0.5
 - For Example
 
 ```
-ajeetraina@Ajeets-MacBook-Pro ~ % redis-cli -h redis-12929.c212.ap-south-1-1.ec2.cloud.redislabs.com -p 12929
+ajeetraina@Ajeets-MacBook-Pro ~ % sudo python3 sensorloader.py --host redis-10415.c212.ap-south-1-1.ec2.cloud.redislabs.com --port 10415 --password XXXX
 redis-12929.c212.ap-south-1-1.ec2.cloud.redislabs.com:12929> auth <password>
 OK
 redis-12929.c212.ap-south-1-1.ec2.cloud.redislabs.com:12929> monitor
