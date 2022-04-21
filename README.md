@@ -284,6 +284,8 @@ HSET bikes:10000
  
 Loading BME680 Sensor data directly into RedisTimeSeries(over Redis Enterprise Cloud)
 
+<img width="1293" alt="image" src="https://user-images.githubusercontent.com/313480/164502052-8720279b-934f-4443-b916-d1af5aee3045.png">
+
 
 ### Pre-requisite
 
